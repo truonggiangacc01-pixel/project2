@@ -1,0 +1,28 @@
+@Autowired
+private AdminService adminService;
+    @Autowired
+private HorseService horseService;
+    @Autowired
+private HorseOwnerService horseOwnerService;
+    @Autowired
+private JockeyService jockeyService;
+    @Autowired
+private NotificationService notificationService;
+    @Autowired
+private PredictionService predictionService;
+    @Autowired
+private PrizeService prizeService;
+    @Autowired
+private RaceParticipationService raceParticipationService;
+    @Autowired
+private RaceRefereeService raceRefereeService;
+    @Autowired
+private RaceResultService raceResultService;
+    @Autowired
+private RaceScheduleService raceScheduleService;
+    @Autowired
+private SpectatorService spectatorService;
+    @Autowired
+private TicketService ticketService;
+    @Autowired
+private TournamentService tournamentService;
