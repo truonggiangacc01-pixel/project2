@@ -18,7 +18,7 @@ public class HorseOwner {
     private String fullName;
 
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
-    private String username;
+    private String userName;
 
     @Column(name = "phone", nullable = false, unique = true)
     private String phone;
@@ -68,9 +68,9 @@ public class HorseOwner {
     public HorseOwner() {
     }
 
-    public HorseOwner(String fullName, String username, String phone, String password, String email) {
+    public HorseOwner(String fullName, String userName, String phone, String password, String email) {
         this.fullName = fullName;
-        this.username = username;
+        this.userName = userName;
         this.phone = phone;
         this.password = password;
         this.email = email;
@@ -84,12 +84,12 @@ public class HorseOwner {
         this.fullName = fullName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPhone() {
@@ -121,7 +121,7 @@ public class HorseOwner {
         return "HorseOwner{" +
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

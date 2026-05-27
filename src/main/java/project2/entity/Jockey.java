@@ -18,7 +18,7 @@ public class Jockey {
     private String fullName;
 
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
-    private String username;
+    private String userName;
 
     @Column(name = "age", nullable = false)
     private Integer age;
@@ -71,9 +71,9 @@ public class Jockey {
     public Jockey() {
     }
 
-    public Jockey(String fullName, String username, Integer age, Integer experience_years, String phone, String password) {
+    public Jockey(String fullName, String userName, Integer age, Integer experience_years, String phone, String password) {
         this.fullName = fullName;
-        this.username = username;
+        this.userName = userName;
         this.age = age;
         this.experience_years = experience_years;
         this.phone = phone;
@@ -88,12 +88,12 @@ public class Jockey {
         this.fullName = fullName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Integer getAge() {
@@ -133,7 +133,7 @@ public class Jockey {
         return "Jockey{" +
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", age=" + age +
                 ", experience_years=" + experience_years +
                 ", phone='" + phone + '\'' +
