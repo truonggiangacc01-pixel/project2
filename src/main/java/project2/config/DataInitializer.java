@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 import project2.entity.*;
 import project2.service.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -57,11 +60,7 @@ public class DataInitializer implements CommandLineRunner {
         Admin ad9 = new Admin("buianh_admin",     "ad123", "buianh.admin@duangua.vn");
         Admin ad10= new Admin("vuongminh_admin",  "ad123", "vuongminh.admin@duangua.vn");
 
-        List<Admin> admins = List.of(ad1, ad2, ad3, ad4, ad5, ad6, ad7, ad8, ad9, ad10);
 
-        for(Admin admin : admins){
-            adminService.saveAdmin(admin);
-        }
 
 
         /*___________________________________________________________________________________________________________ */
@@ -77,11 +76,7 @@ public class DataInitializer implements CommandLineRunner {
         Spectator spec9 = new Spectator("trandung_win", "trandung@gmail.com",  "spec123");
         Spectator spec10= new Spectator("lelan_smile",  "lelan@gmail.com",     "spec123");
 
-        List<Spectator> spectators = List.of(spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
-        for(Spectator spectator : spectators){
-            spectatorService.saveSpectator(spectator);
-        }
 
         /*___________________________________________________________________________________________________________ */
         //                                                  HORSE OWNER
@@ -96,11 +91,8 @@ public class DataInitializer implements CommandLineRunner {
         HorseOwner ho9 = new HorseOwner("Bùi Quốc Vượng", "VuongBQV", "0909990011", "ho123", "quocvuong.owner@gmail.com");
         HorseOwner ho10= new HorseOwner("Ngô Tiến Đạt",   "DatNTĐ",   "0901001122", "ho123", "tiendat.owner@gmail.com");
 
-        List<HorseOwner> horseOwners = List.of(ho1, ho2, ho3, ho4, ho5, ho6, ho7, ho8, ho9, ho10);
 
-        for(HorseOwner horseOwner : horseOwners){
-            horseOwnerService.saveHorseOwner(horseOwner);
-        }
+
 
         /*___________________________________________________________________________________________________________ */
         //                                                  JOCKEY
@@ -115,11 +107,7 @@ public class DataInitializer implements CommandLineRunner {
         Jockey joc9 = new Jockey("Cao Vạn Dặm",       "DamCVD",     28, 7, "0989990011", "Jock123");
         Jockey joc10= new Jockey("Bùi Uy Dũng",       "DungBUD",    31, 11,"0981001122", "Jock123");
 
-        List<Jockey> jockeys = List.of(joc1, joc2, joc3, joc4, joc5, joc6, joc7, joc8, joc9, joc10);
 
-        for(Jockey jockey : jockeys){
-            jockeyService.saveJockey(jockey);
-        }
 
         /*___________________________________________________________________________________________________________ */
         //                                                  RACE REFEREE
@@ -134,12 +122,65 @@ public class DataInitializer implements CommandLineRunner {
         RaceReferee ref9 = new RaceReferee("Chu Uy Nghiêm",    "IemCUN",  "0919990011", "RaRe123", "uynghiem.ref@mail.com");
         RaceReferee ref10= new RaceReferee("Lâm Quyết Đoán",   "DoanLQĐ", "0911001122", "RaRe123", "quyetdoan.ref@mail.com");
 
-        List<RaceReferee> raceReferees = List.of(ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10);
 
-        for(RaceReferee raceReferee : raceReferees){
-            raceRefereeService.saveRaceReferee(raceReferee);
-        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  HORSE
+        Horse h1 = new Horse("Bão Táp",     4, "Thoroughbred",  "Khỏe mạnh");
+        Horse h2 = new Horse("Sấm Sét",     5, "Quarter Horse", "Khỏe mạnh");
+        Horse h3 = new Horse("Xích Thố",    3, "Arabian",       "Khỏe mạnh");
+        Horse h4 = new Horse("Bạch Mã",     6, "Thoroughbred",  "Đang hồi phục");
+        Horse h5 = new Horse("Phi Yến",     4, "Appaloosa",     "Khỏe mạnh");
+        Horse h6 = new Horse("Hắc Ám",      5, "Thoroughbred",  "Chấn thương nhẹ");
+        Horse h7 = new Horse("Tia Chớp",    3, "Quarter Horse", "Khỏe mạnh");
+        Horse h8 = new Horse("Đại Bàng",    7, "Arabian",       "Khỏe mạnh");
+        Horse h9 = new Horse("Gió Lốc",     4, "Thoroughbred",  "Khỏe mạnh");
+        Horse h10= new Horse("Kim Long",    6, "Standardbred",  "Khỏe mạnh");
+        Horse h11= new Horse("Hỏa Phụng",   5, "Akhal-Teke",    "Khỏe mạnh");
+        Horse h12= new Horse("Vũ Điệu",     3, "Thoroughbred",  "Khỏe mạnh");
+        Horse h13= new Horse("Bóng Đêm",    5, "Friesian",      "Đang theo dõi");
+        Horse h14= new Horse("Thần Mã",     6, "Quarter Horse", "Khỏe mạnh");
+        Horse h15= new Horse("Tuyết Trắng", 4, "Arabian",       "Khỏe mạnh");
+        Horse h16= new Horse("Tinh Tú",     3, "Thoroughbred",  "Khỏe mạnh");
+        Horse h17= new Horse("Hùng Tướng",  7, "Mustang",       "Khỏe mạnh");
+        Horse h18= new Horse("Mây Mưa",     5, "Paint Horse",   "Khỏe mạnh");
+        Horse h19= new Horse("Sơn Lâm",     4, "Thoroughbred",  "Khỏe mạnh");
+        Horse h20= new Horse("Độc Hành",    6, "Standardbred",  "Chấn thương nhẹ");
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  TOURNAMENT
+        Tournament tour1 = new Tournament("Giải Đua Ngựa Khai Xuân 2025", "Trường đua Đại Nam", LocalDate.of(2025, 2, 10), LocalDate.of(2025, 2,  15));
+        Tournament tour2 = new Tournament("Giải Đua Ngựa Đón Hè 2025",    "Trường đua Phú Thọ", LocalDate.of(2025, 5, 15), LocalDate.of(2025, 5,  20));
+        Tournament tour3 = new Tournament("Giải Đua Ngựa Vượt Thu 2025",  "Trường đua Sóc Sơn", LocalDate.of(2025, 8, 20), LocalDate.of(2025, 8,  25));
+        Tournament tour4 = new Tournament("Giải Đua Ngựa Chinh Đông 2025","Trường đua Đại Nam", LocalDate.of(2025, 11,5), LocalDate.of( 2025,  11,  10));
+        Tournament tour5 = new Tournament("Giải Vô Địch Quốc Gia 2025",   "Trường đua Phú Thọ", LocalDate.of(2025, 12,20), LocalDate.of(2025, 12, 30));
+        Tournament tour6 = new Tournament("Giải Đua Ngựa Khai Xuân 2026", "Trường đua Đại Nam", LocalDate.of(2026, 2, 10), LocalDate.of(2026, 2,  15));
+        Tournament tour7 = new Tournament("Giải Đua Ngựa Đón Hè 2026",    "Trường đua Phú Thọ", LocalDate.of(2026, 5, 15), LocalDate.of(2026, 5,  20));
+        Tournament tour8 = new Tournament("Giải Đua Ngựa Vượt Thu 2026",  "Trường đua Sóc Sơn", LocalDate.of(2026, 8, 20), LocalDate.of(2026, 8,  25));
+        Tournament tour9 = new Tournament("Giải Đua Ngựa Chinh Đông 2026","Trường đua Đại Nam", LocalDate.of(2026, 11,5), LocalDate.of( 2026,  11,  10));
+        Tournament tour10= new Tournament("Giải Vô Địch Quốc Gia 2026",   "Trường đua Phú Thọ", LocalDate.of(2026, 12,20), LocalDate.of(2026, 12, 30));
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  PRIZE
+        Prize p1 = new Prize("Giải Nhất", BigDecimal.valueOf(2500000000.00),1);
+        Prize p2 = new Prize("Giải Nhì",  BigDecimal.valueOf(1375000000.00),2);
+        Prize p3 = new Prize("Giải Ba",   BigDecimal.valueOf(937500000.00), 3);
+        Prize p4 = new Prize("Giải Tư",   BigDecimal.valueOf(562500000.00), 4);
+        Prize p5 = new Prize("Giải Năm",  BigDecimal.valueOf(375000000.00), 5);
+        Prize p6 = new Prize("Giải Sáu",  BigDecimal.valueOf(375000000.00), 6);
+        Prize p7 = new Prize("Giải Bảy",  BigDecimal.valueOf(375000000.00), 7);
+        Prize p8 = new Prize("Giải Tám",  BigDecimal.valueOf(375000000.00), 8);
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  TICKET
+
+
+
+
+
+
     }
+
 
 
 

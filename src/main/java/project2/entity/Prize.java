@@ -13,10 +13,10 @@ public class Prize {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
+    @Column(name = "name", columnDefinition = "NVARCHAR(255)", nullable = false)
     private String name;
 
-    @Column(name = "amount", columnDefinition = "Decimal(10, 2)", nullable = false)
+    @Column(name = "amount", columnDefinition = "Decimal(12, 2)", nullable = false)
     private BigDecimal amount;
 
     @Column(name = "ranking_required")

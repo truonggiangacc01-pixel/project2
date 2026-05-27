@@ -14,13 +14,13 @@ public class Horse {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
+    @Column(name = "name", columnDefinition = "NVARCHAR(255)", nullable = false)
     private String name;
 
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    @Column(name = "breed", columnDefinition = "NVARCHAR(50)", nullable = false, unique = true)
+    @Column(name = "breed", columnDefinition = "NVARCHAR(50)", nullable = false)
     private String breed;
 
     @Column(name = "health_status", columnDefinition = "NVARCHAR(100)", nullable = false)
