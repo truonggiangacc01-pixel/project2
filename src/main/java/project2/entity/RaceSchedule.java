@@ -1,9 +1,8 @@
 package project2.entity;
 
 import jakarta.persistence.*;
-import project2.enums.RaceStatus;
+import project2.enums.RaceScheduleStatus;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class RaceSchedule {
     private String location;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private RaceStatus status;
+    @Column(name = "status",nullable = false)
+    private RaceScheduleStatus status;
 
     @Column(name = "start_date", nullable = false)
     private LocalDateTime startDate;
@@ -111,7 +110,7 @@ public class RaceSchedule {
     public RaceSchedule() {
     }
 
-    public RaceSchedule(String name, LocalDate raceDate, String location, RaceStatus status, LocalDateTime startDate, LocalDateTime endDate) {
+    public RaceSchedule(String name, LocalDate raceDate, String location, RaceScheduleStatus status, LocalDateTime startDate, LocalDateTime endDate) {
         this.name = name;
         this.raceDate = raceDate;
         this.location = location;
@@ -144,11 +143,11 @@ public class RaceSchedule {
         this.location = location;
     }
 
-    public RaceStatus getStatus() {
+    public RaceScheduleStatus getStatus() {
         return status;
     }
 
-    public void setStatus(RaceStatus status) {
+    public void setStatus(RaceScheduleStatus status) {
         this.status = status;
     }
 

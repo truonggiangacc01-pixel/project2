@@ -20,8 +20,9 @@ public class Prediction {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "status", length = 30, nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private PredictionStatus status;
 
     /*___________________________________________________________________________________________________________ */
 
@@ -76,7 +77,7 @@ public class Prediction {
     public Prediction() {
     }
 
-    public Prediction(Integer number, LocalDateTime createdAt, String status) {
+    public Prediction(Integer number, LocalDateTime createdAt, PredictionStatus status) {
         this.number = number;
         this.createdAt = createdAt;
         this.status = status;
@@ -98,11 +99,11 @@ public class Prediction {
         this.createdAt = createdAt;
     }
 
-    public String getStatus() {
+    public PredictionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(PredictionStatus status) {
         this.status = status;
     }
 
@@ -112,7 +113,7 @@ public class Prediction {
                 "id=" + id +
                 ", number=" + number +
                 ", createdAt=" + createdAt +
-                ", status='" + status + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package project2.entity;
 
 import jakarta.persistence.*;
+import project2.enums.TicketStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,8 +21,10 @@ public class Ticket {
     @Column(name = "purchased_date", nullable = false)
     private LocalDateTime purchaseDate;
 
-    @Column(name = "status", length = 30, nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private TicketStatus status;
+
 
     /*___________________________________________________________________________________________________________ */
 
@@ -60,7 +63,8 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(BigDecimal price, LocalDateTime purchaseDate, String status) {
+
+    public Ticket(BigDecimal price, LocalDateTime purchaseDate, TicketStatus status) {
         this.price = price;
         this.purchaseDate = purchaseDate;
         this.status = status;
@@ -82,11 +86,11 @@ public class Ticket {
         this.purchaseDate = purchaseDate;
     }
 
-    public String getStatus() {
+    public TicketStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TicketStatus status) {
         this.status = status;
     }
 
@@ -96,7 +100,7 @@ public class Ticket {
                 "id=" + id +
                 ", price=" + price +
                 ", purchaseDate=" + purchaseDate +
-                ", status='" + status + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

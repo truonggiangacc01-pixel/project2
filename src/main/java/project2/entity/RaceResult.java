@@ -1,6 +1,7 @@
 package project2.entity;
 
 import jakarta.persistence.*;
+import project2.enums.RaceResultStatus;
 
 import java.time.LocalTime;
 
@@ -21,6 +22,10 @@ public class RaceResult {
 
     @Column(name = "score", nullable = false)
     private Integer score;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private RaceResultStatus status;
 
     /*___________________________________________________________________________________________________________ */
 
@@ -75,10 +80,11 @@ public class RaceResult {
     public RaceResult() {
     }
 
-    public RaceResult(Integer rankPosition, LocalTime finishTime, Integer score) {
+    public RaceResult(Integer rankPosition, LocalTime finishTime, Integer score, RaceResultStatus status) {
         this.rankPosition = rankPosition;
         this.finishTime = finishTime;
         this.score = score;
+        this.status = status;
     }
 
     public Integer getRankPosition() {
@@ -105,6 +111,14 @@ public class RaceResult {
         this.score = score;
     }
 
+    public RaceResultStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RaceResultStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "RaceResult{" +
@@ -112,6 +126,7 @@ public class RaceResult {
                 ", rankPosition=" + rankPosition +
                 ", finishTime=" + finishTime +
                 ", score=" + score +
+                ", status=" + status +
                 '}';
     }
 }

@@ -1,7 +1,7 @@
 package project2.entity;
 
 import jakarta.persistence.*;
-import project2.enums.ParticipationStatus;
+import project2.enums.RaceParticipationStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ public class RaceParticipation {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private ParticipationStatus status;
+    @Column(name = "status", nullable = false)
+    private RaceParticipationStatus status;
 
     @Column(name = "lane_number", nullable = false)
     private Integer laneNumber;
@@ -92,16 +92,16 @@ public class RaceParticipation {
     public RaceParticipation() {
     }
 
-    public RaceParticipation(ParticipationStatus status, Integer laneNumber) {
+    public RaceParticipation(RaceParticipationStatus status, Integer laneNumber) {
         this.status = status;
         this.laneNumber = laneNumber;
     }
 
-    public ParticipationStatus getStatus() {
+    public RaceParticipationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ParticipationStatus status) {
+    public void setStatus(RaceParticipationStatus status) {
         this.status = status;
     }
 

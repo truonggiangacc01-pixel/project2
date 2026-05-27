@@ -21,7 +21,7 @@ public class Notification {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "notification_status", nullable = false)
-    private NotificationStatus notificationStatus;
+    private NotificationStatus status;
 
     /*___________________________________________________________________________________________________________ */
 
@@ -76,10 +76,10 @@ public class Notification {
     public Notification() {
     }
 
-    public Notification(String message, LocalDateTime createdAt, NotificationStatus notificationStatus) {
+    public Notification(String message, LocalDateTime createdAt, NotificationStatus status) {
         this.message = message;
         this.createdAt = createdAt;
-        this.notificationStatus = notificationStatus;
+        this.status = status;
     }
 
     public String getMessage() {
@@ -98,12 +98,12 @@ public class Notification {
         this.createdAt = createdAt;
     }
 
-    public NotificationStatus getNotificationStatus() {
-        return notificationStatus;
+    public NotificationStatus getStatus() {
+        return status;
     }
 
-    public void setNotificationStatus(NotificationStatus notificationStatus) {
-        this.notificationStatus = notificationStatus;
+    public void setStatus(NotificationStatus status) {
+        this.status = status;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Notification {
                 "id=" + id +
                 ", message='" + message + '\'' +
                 ", createdAt=" + createdAt +
-                ", notificationStatus=" + notificationStatus +
+                ", status=" + status +
                 '}';
     }
 }

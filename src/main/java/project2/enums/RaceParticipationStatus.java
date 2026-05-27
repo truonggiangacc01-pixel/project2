@@ -1,6 +1,6 @@
 package project2.enums;
 
-public enum ParticipationStatus {
+public enum RaceParticipationStatus {
     PENDING,
     CONFIRMED,
     REJECTED,

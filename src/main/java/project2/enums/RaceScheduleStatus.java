@@ -1,6 +1,6 @@
 package project2.enums;
 
-public enum RaceStatus {
+public enum RaceScheduleStatus {
     PENDING,
     ONGOING,
     COMPLETED,
