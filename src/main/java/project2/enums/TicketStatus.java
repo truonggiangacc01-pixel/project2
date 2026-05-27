@@ -2,7 +2,7 @@ package project2.enums;
 
 public enum TicketStatus {
 
-    AVAILABEL,
+    AVAILABLE,
     SOLD,
     USED,
     CANCELLED

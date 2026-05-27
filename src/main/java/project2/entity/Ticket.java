@@ -15,7 +15,7 @@ public class Ticket {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "awards", columnDefinition = "DECIMAL(15, 0)", nullable = false)
+    @Column(name = "price", columnDefinition = "DECIMAL(15, 0)", nullable = false)
     private BigDecimal price;
 
     @Column(name = "purchased_date", nullable = false)

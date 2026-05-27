@@ -20,9 +20,6 @@ public class RaceResult {
     @Column(name = "finish_time", nullable = false)
     private LocalTime finishTime;
 
-    @Column(name = "score", nullable = false)
-    private Integer score;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private RaceResultStatus status;
@@ -80,10 +77,9 @@ public class RaceResult {
     public RaceResult() {
     }
 
-    public RaceResult(Integer rankPosition, LocalTime finishTime, Integer score, RaceResultStatus status) {
+    public RaceResult(Integer rankPosition, LocalTime finishTime, RaceResultStatus status) {
         this.rankPosition = rankPosition;
         this.finishTime = finishTime;
-        this.score = score;
         this.status = status;
     }
 
@@ -103,14 +99,6 @@ public class RaceResult {
         this.finishTime = finishTime;
     }
 
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
     public RaceResultStatus getStatus() {
         return status;
     }
@@ -125,7 +113,6 @@ public class RaceResult {
                 "id=" + id +
                 ", rankPosition=" + rankPosition +
                 ", finishTime=" + finishTime +
-                ", score=" + score +
                 ", status=" + status +
                 '}';
     }

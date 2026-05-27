@@ -30,11 +30,11 @@ public class RaceSchedule {
     @Column(name = "status",nullable = false)
     private RaceScheduleStatus status;
 
-    @Column(name = "start_date", nullable = false)
-    private LocalDateTime startDate;
+    @Column(name = "start_time", nullable = false)
+    private LocalDateTime startTime;
 
-    @Column(name = "end_date", nullable = false)
-    private LocalDateTime endDate;
+    @Column(name = "end_time", nullable = false)
+    private LocalDateTime endTime;
 
     /*___________________________________________________________________________________________________________ */
 
@@ -110,13 +110,13 @@ public class RaceSchedule {
     public RaceSchedule() {
     }
 
-    public RaceSchedule(String name, LocalDate raceDate, String location, RaceScheduleStatus status, LocalDateTime startDate, LocalDateTime endDate) {
+    public RaceSchedule(String name, LocalDate raceDate, String location, RaceScheduleStatus status, LocalDateTime startTime, LocalDateTime endTime) {
         this.name = name;
         this.raceDate = raceDate;
         this.location = location;
         this.status = status;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public String getName() {
@@ -151,20 +151,20 @@ public class RaceSchedule {
         this.status = status;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
     }
 
     @Override
@@ -175,8 +175,8 @@ public class RaceSchedule {
                 ", raceDate=" + raceDate +
                 ", location='" + location + '\'' +
                 ", status=" + status +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
                 '}';
     }
 }
