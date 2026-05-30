@@ -20,13 +20,13 @@ public class HorseOwner {
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
     private String userName;
 
-    @Column(name = "phone", nullable = false, unique = true)
+    @Column(name = "phone", nullable = false)
     private String phone;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     /*___________________________________________________________________________________________________________ */
