@@ -14,6 +14,7 @@ import project2.service.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +67,8 @@ public class DataInitializer implements CommandLineRunner {
         Admin ad4 = new Admin("nguyenbich_admin", "ad123", "nguyenbich.admin@duangua.vn");
         Admin ad5 = new Admin("tranduong_admin",  "ad123", "tranduong.admin@duangua.vn");
 
+
+
         /*___________________________________________________________________________________________________________ */
         //                                                  SPECTATOR
         Spectator spec1 = new Spectator("khangia_tuan", "tuankh@gmail.com",    "spec123");
@@ -86,13 +89,6 @@ public class DataInitializer implements CommandLineRunner {
         HorseOwner ho2 = new HorseOwner("Trương Đại Lộc", "LocTĐL",   "0902223344", "ho123", "dailoc.owner@gmail.com");
         HorseOwner ho3 = new HorseOwner("Trần Phú Qúy",   "QuyTPQ",   "0903334455", "ho123", "phuquy.owner@gmail.com");
         HorseOwner ho4 = new HorseOwner("Nguyễn Tài Phát","PhatNTP",  "0904445566", "ho123", "taiphat.owner@gmail.com");
-        HorseOwner ho5 = new HorseOwner("Đặng Hữu Trí",   "TriĐHT",   "0905556677", "ho123", "huutri.owner@gmail.com");
-
-
-
-
-
-
 
 
         /*___________________________________________________________________________________________________________ */
@@ -135,16 +131,6 @@ public class DataInitializer implements CommandLineRunner {
         Horse h6 = new Horse("Hắc Ám",  5, "Thoroughbred",  "Chấn thương nhẹ");
         Horse h7 = new Horse("Tia Chớp",3, "Quarter Horse", "Khỏe mạnh");
         Horse h8 = new Horse("Đại Bàng",7, "Arabian",       "Khỏe mạnh");
-        Horse h9 = new Horse("Gió Lốc", 4, "Thoroughbred",  "Khỏe mạnh");
-        Horse h10= new Horse("Kim Long",6, "Standardbred",  "Khỏe mạnh");
-
-
-
-
-
-
-
-
 
 
         /*___________________________________________________________________________________________________________ */
@@ -306,7 +292,137 @@ public class DataInitializer implements CommandLineRunner {
 
         /*___________________________________________________________________________________________________________ */
         //                                                  RACE PARITIPATION
-       // RaceParticipation rapa1 = new RaceParticipation(RaceParticipationStatus status, Integer laneNumber);
+
+        /*A - B - C */ //tham chiếu đến RaceScheduleId - HorseId - JockeyId
+
+        //Bán kết Quốc gia 2025 lần 1
+        /*1 - 1 - 1*/RaceParticipation rapa1 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*1 - 2 - 2*/RaceParticipation rapa2 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*1 - 3 - 3*/RaceParticipation rapa3 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*1 - 4 - 4*/RaceParticipation rapa4 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Bán kết Quốc gia 2025 lần 2
+        /*2 - 5 - 5*/RaceParticipation rapa5 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*2 - 6 - 6*/RaceParticipation rapa6 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*2 - 7 - 7*/RaceParticipation rapa7 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*2 - 8 - 8*/RaceParticipation rapa8 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Chung kết Quốc gia 2025
+        /*3 - 1 - 1*/RaceParticipation rapa9 = new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*3 - 2 - 2*/RaceParticipation rapa10= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*3 - 5 - 5*/RaceParticipation rapa11= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*3 - 6 - 6*/RaceParticipation rapa12= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Chung kết Xuân 2026
+        /*4 - 1 - 1*/RaceParticipation rapa13= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*4 - 2 - 2*/RaceParticipation rapa14= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*4 - 3 - 3*/RaceParticipation rapa15= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*4 - 4 - 4*/RaceParticipation rapa16= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Chung kết Hè 2026
+        /*5 - 5 - 5*/RaceParticipation rapa17= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*5 - 6 - 6*/RaceParticipation rapa18= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*5 - 7 - 7*/RaceParticipation rapa19= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*5 - 8 - 8*/RaceParticipation rapa20= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Chung kết Thu 2026
+        /*6 - 1 - 1*/RaceParticipation rapa21= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*6 - 2 - 2*/RaceParticipation rapa22= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*6 - 3 - 3*/RaceParticipation rapa23= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*6 - 4 - 4*/RaceParticipation rapa24= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Chung kết Đông 2026
+        /*7 - 1 - 1*/RaceParticipation rapa25= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*7 - 2 - 2*/RaceParticipation rapa26= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*7 - 3 - 3*/RaceParticipation rapa27= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*7 - 4 - 4*/RaceParticipation rapa28= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Bán kết Quốc gia 2026 lần 1
+        /*8 - 1 - 1*/RaceParticipation rapa29= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*8 - 2 - 2*/RaceParticipation rapa30= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*8 - 3 - 3*/RaceParticipation rapa31= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*8 - 4 - 4*/RaceParticipation rapa32= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+        //Bán kết Quốc gia 2026 lần 2
+        /*9 - 5 - 5*/RaceParticipation rapa33= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 1);
+        /*9 - 6 - 6*/RaceParticipation rapa34= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 2);
+        /*9 - 7 - 7*/RaceParticipation rapa35= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 3);
+        /*9 - 8 - 8*/RaceParticipation rapa36= new RaceParticipation(RaceParticipationStatus.CONFIRMED, 4);
+
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  RACE RESULT
+        /*A - B - C */ //tham chiếu đến RaceScheduleId - RaceRefereeId - RaceParticipationId
+
+        //Bán kết Quốc gia 2025 lần 1
+        /*1 - 1 - 1*/RaceResult rare1 = new RaceResult(1, LocalTime.of(0, 4, 50, 120_000_000), RaceResultStatus.OFFICIAL);
+        /*1 - 1 - 2*/RaceResult rare2 = new RaceResult(2, LocalTime.of(0, 4, 50, 350_000_000), RaceResultStatus.OFFICIAL);
+        /*1 - 1 - 3*/RaceResult rare3 = new RaceResult(3, LocalTime.of(0, 4, 51, 140_000_000), RaceResultStatus.OFFICIAL);
+        /*1 - 1 - 4*/RaceResult rare4 = new RaceResult(4, LocalTime.of(0, 4, 55, 150_000_000), RaceResultStatus.OFFICIAL);
+
+        //Bán kết Quốc gia 2025 lần 2
+        /*2 - 2 - 5*/RaceResult rare5 = new RaceResult(4, LocalTime.of(0, 5, 55, 150_000_000), RaceResultStatus.OFFICIAL);
+        /*2 - 2 - 6*/RaceResult rare6 = new RaceResult(3, LocalTime.of(0, 5, 51, 140_000_000), RaceResultStatus.OFFICIAL);
+        /*2 - 2 - 7*/RaceResult rare7 = new RaceResult(2, LocalTime.of(0, 5, 50, 350_000_000), RaceResultStatus.OFFICIAL);
+        /*2 - 2 - 8*/RaceResult rare8 = new RaceResult(1, LocalTime.of(0, 5, 50, 120_000_000), RaceResultStatus.OFFICIAL);
+
+        //Chung kết Quốc gia 2025
+        /*3 - 3 - 9*/RaceResult rare9 = new RaceResult(2, LocalTime.of(0, 6, 50, 350_000_000), RaceResultStatus.OFFICIAL);
+        /*3 - 3 - 10*/RaceResult rare10=new RaceResult(3, LocalTime.of(0, 6, 51, 140_000_000), RaceResultStatus.OFFICIAL);
+        /*3 - 3 - 11*/RaceResult rare11=new RaceResult(4, LocalTime.of(0, 6, 55, 150_000_000), RaceResultStatus.OFFICIAL);
+        /*3 - 3 - 12*/RaceResult rare12=new RaceResult(1, LocalTime.of(0, 6, 50, 120_000_000), RaceResultStatus.OFFICIAL);
+
+        //Chung kết Xuân 2026
+        /*4 - 4 - 13*/RaceResult rare13=new RaceResult(3, LocalTime.of(0, 5, 51, 140_000_000), RaceResultStatus.OFFICIAL);
+        /*4 - 4 - 14*/RaceResult rare14=new RaceResult(4, LocalTime.of(0, 5, 55, 150_000_000), RaceResultStatus.OFFICIAL);
+        /*4 - 4 - 15*/RaceResult rare15=new RaceResult(1, LocalTime.of(0, 5, 50, 120_000_000), RaceResultStatus.OFFICIAL);
+        /*4 - 4 - 16*/RaceResult rare16=new RaceResult(2, LocalTime.of(0, 5, 50, 350_000_000), RaceResultStatus.OFFICIAL);
+
+        //Chung kết Hè 2026
+        /*5 - 5 - 17*/RaceResult rare17=new RaceResult(4, LocalTime.of(0, 6, 55, 150_000_000), RaceResultStatus.OFFICIAL);
+        /*5 - 5 - 18*/RaceResult rare18=new RaceResult(1, LocalTime.of(0, 6, 50, 120_000_000), RaceResultStatus.OFFICIAL);
+        /*5 - 5 - 19*/RaceResult rare19=new RaceResult(2, LocalTime.of(0, 6, 50, 350_000_000), RaceResultStatus.OFFICIAL);
+        /*5 - 5 - 20*/RaceResult rare20=new RaceResult(3, LocalTime.of(0, 6, 51, 140_000_000), RaceResultStatus.OFFICIAL);
+
+        //Chung kết Thu 2026
+        /*6 - 6 - 21*/RaceResult rare21=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*6 - 6 - 22*/RaceResult rare22=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*6 - 6 - 23*/RaceResult rare23=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*6 - 6 - 24*/RaceResult rare24=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+
+        //Chung Kết Đông 2026
+        /*7 - 7 - 25*/RaceResult rare25=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*7 - 7 - 26*/RaceResult rare26=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*7 - 7 - 27*/RaceResult rare27=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*7 - 7 - 28*/RaceResult rare28=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+
+        //Bán kết Quốc gia 2026 lần 1
+        /*8 - 8 - 29*/RaceResult rare29=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*8 - 8 - 30*/RaceResult rare30=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*8 - 8 - 31*/RaceResult rare31=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*8 - 8 - 32*/RaceResult rare32=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+
+        //Bán kết Quốc gia 2026 lần 2
+        /*9 - 9 - 33*/RaceResult rare33=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*9 - 9 - 34*/RaceResult rare34=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*9 - 9 - 35*/RaceResult rare35=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+        /*9 - 9 - 36*/RaceResult rare36=new RaceResult(null, null, RaceResultStatus.UNOFFICIAL);
+
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  PREDICTION
+        //Prediction pre1 = new  Prediction(Integer number, LocalDateTime createdAt, PredictionStatus status);
+
+
+
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                                  NOTIFICATION
+
+
 
 
 
