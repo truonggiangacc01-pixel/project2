@@ -1,6 +1,7 @@
 package project2.config;
 
 
+import org.springframework.beans.factory.BeanRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -101,8 +102,12 @@ public class DataInitializer implements CommandLineRunner {
         Jockey joc6 = new Jockey("Vũ Phong Nhã",      "NhaVPN",     26, 5, "0986667788", "Jock123");
         Jockey joc7 = new Jockey("Hồ Quang Uy",       "UyHQU",      30, 9, "0987778899", "Jock123");
         Jockey joc8 = new Jockey("Lý Phi Long",       "LongLPL",    23, 2, "0988889900", "Jock123");
+
+        /*
         Jockey joc9 = new Jockey("Cao Vạn Dặm",       "DamCVD",     28, 7, "0989990011", "Jock123");
         Jockey joc10= new Jockey("Bùi Uy Dũng",       "DungBUD",    31, 11,"0981001122", "Jock123");
+
+         */
 
 
 
@@ -413,8 +418,25 @@ public class DataInitializer implements CommandLineRunner {
 
         /*___________________________________________________________________________________________________________ */
         //                                                  PREDICTION
-        //Prediction pre1 = new  Prediction(Integer number, LocalDateTime createdAt, PredictionStatus status);
 
+
+        /*A - B - C */ //tham chiếu đến RaceScheduleId - HorseId - SpectatorId
+
+
+        /*3 - 1 - 1*/Prediction pre1 = new Prediction(1, LocalDateTime.of( 2025, 12, 16, 11, 45), PredictionStatus.WON);
+        /*3 - 2 - 2*/Prediction pre2 = new Prediction(2, LocalDateTime.of( 2025, 12, 17, 11, 45), PredictionStatus.LOST);
+        /*4 - 3 - 3*/Prediction pre3 = new Prediction(3, LocalDateTime.of( 2026, 2,  1,  9,  0),  PredictionStatus.WON);
+        /*4 - 4 - 4*/Prediction pre4 = new Prediction(4, LocalDateTime.of( 2026, 2,  2,  9,  0),  PredictionStatus.WON);
+        /*5 - 7 - 5*/Prediction pre5 = new Prediction(5, LocalDateTime.of( 2026, 5,  12, 14, 30), PredictionStatus.WON);
+        /*5 - 8 - 6*/Prediction pre6 = new Prediction(6, LocalDateTime.of( 2026, 5,  13, 14, 30), PredictionStatus.LOST);
+
+
+        /*6 - 3 - 7*/Prediction pre7 = new Prediction(7, LocalDateTime.of( 2026, 8,  11, 10, 15), PredictionStatus.PENDING);
+        /*6 - 4 - 8*/Prediction pre8 = new Prediction(8, LocalDateTime.of( 2026, 8,  12, 10, 15), PredictionStatus.PENDING);
+        /*7 - 5 - 9*/Prediction pre9 = new Prediction(9, LocalDateTime.of( 2026, 11, 1,  16, 0),  PredictionStatus.PENDING);
+        /*7 - 6 - 10*/Prediction pre10= new Prediction(10, LocalDateTime.of(2026, 11, 1,  16, 0),  PredictionStatus.PENDING);
+        /*8 - 1 - 1*/Prediction pre11= new Prediction(11, LocalDateTime.of(2026, 12, 16, 11, 45), PredictionStatus.PENDING);
+        /*9 - 5 - 2*/Prediction pre12= new Prediction(12, LocalDateTime.of(2026, 12, 17, 11, 45), PredictionStatus.PENDING);
 
 
 
@@ -425,6 +447,235 @@ public class DataInitializer implements CommandLineRunner {
 
 
 
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU Spectator
+
+        List<Spectator> spectators = List.of(spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+
+        for(Spectator spectator : spectators){
+            spectatorService.saveSpectator(spectator);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU Racereferee
+
+        List<RaceReferee> raceReferees = List.of(ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10);
+
+        for(RaceReferee raceReferee : raceReferees){
+            raceRefereeService.saveRaceReferee(raceReferee);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU Jockey
+
+        List<Jockey> jockeys = List.of(joc1, joc2, joc3, joc4, joc5, joc6, joc7, joc8);
+
+        for(Jockey jockey : jockeys){
+            jockeyService.saveJockey(jockey);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              GÁN Horse vào HorseOwner
+
+        List<HorseOwner> horseOwners = List.of(ho1, ho2, ho3, ho4);
+
+        List<Horse> horses = List.of(h1, h2, h3, h4, h5, h6, h7, h8);
+
+        for(int i = 0; i < horses.size(); i++){
+
+            int ownerIndex = i / 2;
+            horseOwners.get(ownerIndex).addHorse(horses.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU HorseOwner
+
+        for(HorseOwner horseOwner : horseOwners){
+            horseOwnerService.saveHorseOwner(horseOwner);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Tournament vào Admin
+
+        List<Admin> admins = List.of(ad1, ad2, ad3, ad4, ad5);
+
+        List<Tournament> tournaments = List.of(tour1, tour2, tour3, tour4, tour5, tour6);
+
+        for(int i = 0; i < tournaments.size(); i++){
+
+            Admin currentAdmin = admins.get(i % admins.size());
+            currentAdmin.addTournament(tournaments.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceSchedule vào Tournament
+
+        tour1.addRaceSchedule(rasc1);
+        tour1.addRaceSchedule(rasc2);
+        tour1.addRaceSchedule(rasc3);
+        tour2.addRaceSchedule(rasc4);
+        tour3.addRaceSchedule(rasc5);
+
+        tour4.addRaceSchedule(rasc6);
+        tour5.addRaceSchedule(rasc7);
+        tour6.addRaceSchedule(rasc8);
+        tour6.addRaceSchedule(rasc9);
+        tour6.addRaceSchedule(rasc10);
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Ticket vào Tournament
+
+        //List<Tournament> tournaments = List.of(tour1, tour2, tour3, tour4, tour5, tour6);
+
+        List<Ticket> tickets = List.of(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+
+        for(int i = 0; i < tickets.size(); i++){
+
+            int tourIndex = i / 2;
+            tournaments.get(tourIndex).addTicket(tickets.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Ticket vào Spectator
+
+        //List<Spectator> spectators = List.of(spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+
+        //List<Ticket> tickets = List.of(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+
+        for(int i = 0; i < tickets.size(); i++){
+
+            Spectator currentSpectator = spectators.get(i % spectators.size());
+            currentSpectator.addTicket(tickets.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào RaceSchedule
+
+        List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        List<RaceSchedule> raceSchedules = List.of(rasc1, rasc2, rasc3, rasc4, rasc5, rasc6, rasc7, rasc8, rasc9, rasc10);
+
+        for (int i = 0; i < raceParticipations.size(); i++) {
+
+            int scheduleIndex = i / 4;
+
+            if(scheduleIndex < raceSchedules.size()){
+                raceSchedules.get(scheduleIndex).addRaceParticipation(raceParticipations.get(i));
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào Jockey
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<Jockey> jockeys = List.of(joc1, joc2, joc3, joc4, joc5, joc6, joc7, joc8);
+
+        //ĐỢT 1: rapa1 -> rapa8 (index 0 đến 7)
+        for(int i = 0; i < 8; i++){
+            jockeys.get(i).addRaceParticipation(raceParticipations.get(i));
+        }
+
+        //ĐỢT 2: rap9 -> rapa12 (index 8 đến 11)
+        int[] jockeyDot2 = {0, 1, 4, 5};
+        for(int i = 0; i < 4; i++){
+            jockeys.get(jockeyDot2[i]).addRaceParticipation(raceParticipations.get(8 + i));
+        }
+
+        //ĐỢT 3: rapa13 -> rapa36 (index 12 đến 35)
+        int jocIndex = 0;
+
+        for(int i = 12; i < raceParticipations.size(); i++){
+
+            jockeys.get(jocIndex).addRaceParticipation(raceParticipations.get(i));
+
+            jocIndex++;
+            if(jocIndex == 8){
+                jocIndex = 0;
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào Horse
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<Horse> horses = List.of(h1, h2, h3, h4, h5, h6, h7, h8);
+
+        //ĐỢT 1: rapa1 -> rapa8 (index 0 đến 7)
+        for(int i = 0; i < 8; i++){
+            horses.get(i).addRaceParticipation(raceParticipations.get(i));
+        }
+
+        //ĐỢT 2: rap9 -> rapa12 (index 8 đến 11)
+        int[] horseDot2 = {0, 1, 4, 5};
+        for(int i = 0; i < 4; i++){
+            horses.get(horseDot2[i]).addRaceParticipation(raceParticipations.get(8 + i));
+        }
+
+        //ĐỢT 3: rapa13 -> rapa36 (index 12 đến 35)
+        int horseIndex = 0;
+
+        for(int i = 12; i < raceParticipations.size(); i++){
+
+            horses.get(horseIndex).addRaceParticipation(raceParticipations.get(i));
+
+            horseIndex++;
+            if(horseIndex == 8){
+                horseIndex = 0;
+            }
+        }
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceSchedule
+
+        //List<RaceSchedule> raceSchedules = List.of(rasc1, rasc2, rasc3, rasc4, rasc5, rasc6, rasc7, rasc8, rasc9, rasc10);
+
+        List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for (int i = 0; i < raceResults.size(); i++) {
+
+            int scheduleIndex = i / 4;
+
+            if(scheduleIndex < raceSchedules.size()){
+                raceSchedules.get(scheduleIndex).addRaceResult(raceResults.get(i));
+            }
+        }
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceParticipation
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for(int i = 0; i < raceResults.size(); i++){
+            raceParticipations.get(i).addRaceResult(raceResults.get(i));
+        }
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceReferee
+
+        //List<RaceReferee> raceReferees = List.of(ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10);
+
+        //List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for (int i = 0; i < raceResults.size(); i++) {
+
+            int raceRefereeIndex = i / 4;
+
+            if(raceRefereeIndex < raceSchedules.size()){
+                raceSchedules.get(raceRefereeIndex).addRaceResult(raceResults.get(i));
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Prediction vào
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Prediction vào
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Prediction vào
 
 
 
