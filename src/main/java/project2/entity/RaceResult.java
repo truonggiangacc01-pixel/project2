@@ -14,10 +14,10 @@ public class RaceResult {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "rank_position", nullable = false)
+    @Column(name = "rank_position")
     private Integer rankPosition;
 
-    @Column(name = "finish_time", nullable = false)
+    @Column(name = "finish_time")
     private LocalTime finishTime;
 
     @Enumerated(EnumType.STRING)
