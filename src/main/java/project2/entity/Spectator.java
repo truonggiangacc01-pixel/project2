@@ -17,7 +17,7 @@ public class Spectator {
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
     private String userName;
 
-    @Column(name = "email", length = 100, nullable = false, unique = true)
+    @Column(name = "email", length = 100, nullable = false)
     private String email;
 
     @Column(name = "password", length = 20, nullable = false)
