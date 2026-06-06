@@ -1,6 +1,9 @@
 package project2.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +23,13 @@ public class RaceReferee {
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "phone", nullable = false, unique = true)
+    @Column(name = "phone", nullable = false, length = 11)
     private String phone;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 20)
     private String password;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
 
     /*___________________________________________________________________________________________________________ */

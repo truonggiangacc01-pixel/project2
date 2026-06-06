@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface RaceRefereeRepo extends JpaRepository<RaceReferee, Integer> {
 
-
+    boolean existsByEmail(String email);
 }

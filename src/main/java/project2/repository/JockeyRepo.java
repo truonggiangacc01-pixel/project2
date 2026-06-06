@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface JockeyRepo extends JpaRepository<Jockey, Integer> {
 
-
+    boolean existsByEmail(String email);
 }

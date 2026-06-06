@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface AdminRepo extends JpaRepository<Admin, Integer> {
 
-
+    boolean existsByEmail(String email);
 }

@@ -1,6 +1,8 @@
 package project2.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +17,28 @@ public class HorseOwner {
     private Integer id;
 
     @Column(name = "full_name", columnDefinition = "NVARCHAR(255)", nullable = false)
+    @NotBlank(message = "The fullName is required")
+    @Size(min = 4, max = 255, message = "The fullName must be in bettwen 4 to 255 character length")
     private String fullName;
 
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
+    @NotBlank(message = "The userName is required")
+    @Size(min = 4, max = 255, message = "The userName must be in between 4 to 255 character length")
     private String userName;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone", nullable = false, length = 11)
+    @NotBlank(message = "The phone is required")
+    @Size(min = 10, max = 11, message = "The phone must be in between 10 to 11 character length")
     private String phone;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 20)
+    @NotBlank(message = "The password is required")
+    @Size(min = 4, max = 20, message = "The password must be in between 4 to 20 character length")
     private String password;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, length = 100)
+    @NotBlank(message = "The email is required")
+    @Size(min = 4, max = 100, message = "The email must be in between 4 to 100 character length")
     private String email;
 
     /*___________________________________________________________________________________________________________ */

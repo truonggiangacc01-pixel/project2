@@ -94,14 +94,16 @@ public class DataInitializer implements CommandLineRunner {
 
         /*___________________________________________________________________________________________________________ */
         //                                                  JOCKEY
-        Jockey joc1 = new Jockey("Trần Kỵ Thương", "ThuongTKT", 25, 4, "0981112233", "Jock123");
-        Jockey joc2 = new Jockey("Lê Bá Vũ", "VuLBV", 29, 8, "0982223344", "Jock123");
-        Jockey joc3 = new Jockey("Nguyễn Phi Trường", "TruongNPT", 24, 3, "0983334455", "Jock123");
-        Jockey joc4 = new Jockey("Phạm Dũng Cảm", "CamPDC", 32, 10, "0984445566", "Jock123");
-        Jockey joc5 = new Jockey("Đinh Thần Tốc", "TocĐTT", 27, 6, "0985556677", "Jock123");
-        Jockey joc6 = new Jockey("Vũ Phong Nhã", "NhaVPN", 26, 5, "0986667788", "Jock123");
-        Jockey joc7 = new Jockey("Hồ Quang Uy", "UyHQU", 30, 9, "0987778899", "Jock123");
-        Jockey joc8 = new Jockey("Lý Phi Long", "LongLPL", 23, 2, "0988889900", "Jock123");
+        Jockey joc1 = new Jockey("Trần Kỵ Thương",    "ThuongTKT",25, 4, "0981112233", "Jock123", "kythuong.jockey@gmail.com");
+        Jockey joc2 = new Jockey("Lê Bá Vũ",          "VuLBV",    29, 8, "0982223344", "Jock123", "bavu.jockey@gmail.com");
+        Jockey joc3 = new Jockey("Nguyễn Phi Trường", "TruongNPT",24, 3, "0983334455", "Jock123", "phitruong.jockey@gmail.com");
+        Jockey joc4 = new Jockey("Phạm Dũng Cảm",     "CamPDC",   32, 10,"0984445566", "Jock123", "dungcam.jockey@gmail.com");
+        Jockey joc5 = new Jockey("Đinh Thần Tốc",     "TocĐTT",   27, 6, "0985556677", "Jock123", "thantoc.jockey@gmail.com");
+        Jockey joc6 = new Jockey("Vũ Phong Nhã",      "NhaVPN",   26, 5, "0986667788", "Jock123", "phongnha.jockey@gmail.com");
+        Jockey joc7 = new Jockey("Hồ Quang Uy",       "UyHQU",    30, 9, "0987778899", "Jock123", "quanguy.jockey@gmail.com");
+        Jockey joc8 = new Jockey("Lý Phi Long",       "LongLPL",  23, 2, "0988889900", "Jock123", "philong.jockey@gmail.com");
+
+
 
         /*
         Jockey joc9 = new Jockey("Cao Vạn Dặm",       "DamCVD",     28, 7, "0989990011", "Jock123");

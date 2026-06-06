@@ -1,6 +1,10 @@
 package project2.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,22 +19,38 @@ public class Jockey {
     private Integer id;
 
     @Column(name = "full_name", columnDefinition = "NVARCHAR(255)", nullable = false)
+    @NotBlank(message = "The fullName is required")
+    @Size(min = 4, max = 255, message = "The fullName must be in bettwen 4 to 255 character length")
     private String fullName;
 
     @Column(name = "user_name", columnDefinition = "NVARCHAR(255)", nullable = false, unique = true)
+    @NotBlank(message = "The userName is require")
+    @Size(min = 4, max = 255, message = "The userName must be in bettwen 4 to 255 character length")
     private String userName;
 
+    @Positive(message = "The age must be positive")
     @Column(name = "age", nullable = false)
+    @Min(value = 18, message = "The jockey must be at least 18")
     private Integer age;
 
+    @Positive(message = "The experience year must be positive")
     @Column(name = "experience_years", nullable = false)
     private Integer experience_years;
 
-    @Column(name = "phone", nullable = false, unique = true)
+    @Column(name = "phone", nullable = false, length = 11)
+    @NotBlank(message = "The phone is required")
+    @Size(min = 10, max = 11, message = "The phone must be in between 10 to 11 character length")
     private String phone;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", length = 20, nullable = false)
+    @NotBlank(message = "The password is required")
+    @Size(min = 4, max = 20, message = "The password must be in between 4 to 20 character length")
     private String password;
+
+    @Column(name = "email", length = 100, nullable = false)
+    @NotBlank(message = "The email is required")
+    @Size(min = 4, max = 100, message = "The email must be in between 4 to 100 character lenght")
+    private String email;
 
     /*___________________________________________________________________________________________________________ */
 
@@ -71,13 +91,14 @@ public class Jockey {
     public Jockey() {
     }
 
-    public Jockey(String fullName, String userName, Integer age, Integer experience_years, String phone, String password) {
+    public Jockey(String fullName, String userName, Integer age, Integer experience_years, String phone, String password, String email) {
         this.fullName = fullName;
         this.userName = userName;
         this.age = age;
         this.experience_years = experience_years;
         this.phone = phone;
         this.password = password;
+        this.email = email;
     }
 
     public String getFullName() {
@@ -128,6 +149,14 @@ public class Jockey {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Jockey{" +
@@ -138,6 +167,7 @@ public class Jockey {
                 ", experience_years=" + experience_years +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
