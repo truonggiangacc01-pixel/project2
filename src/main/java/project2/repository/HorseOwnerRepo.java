@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface HorseOwnerRepo extends JpaRepository<HorseOwner, Integer> {
 
     boolean existsByEmail(String email);
+
+    Optional<HorseOwner> findByEmail(String email);
 }

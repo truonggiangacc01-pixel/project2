@@ -42,9 +42,9 @@ public class Jockey {
     @Size(min = 10, max = 11, message = "The phone must be in between 10 to 11 character length")
     private String phone;
 
-    @Column(name = "password", length = 20, nullable = false)
+    @Column(name = "password", length = 255, nullable = false)
     @NotBlank(message = "The password is required")
-    @Size(min = 4, max = 20, message = "The password must be in between 4 to 20 character length")
+    @Size(min = 4, max = 255, message = "The password must be in between 4 to 255 character length")
     private String password;
 
     @Column(name = "email", length = 100, nullable = false)

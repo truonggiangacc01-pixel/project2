@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface SpectatorRepo extends JpaRepository<Spectator, Integer> {
 
     boolean existsByEmail(String email);
+
+    Optional<Spectator> findByEmail(String email);
 }

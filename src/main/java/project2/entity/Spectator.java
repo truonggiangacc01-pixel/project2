@@ -26,9 +26,9 @@ public class Spectator {
     @Size(min = 4, max = 100, message = "The email must be in bettwen 4 to 100 character length")
     private String email;
 
-    @Column(name = "password", length = 20, nullable = false)
+    @Column(name = "password", length = 255, nullable = false)
     @NotBlank(message = "The password is requried")
-    @Size(min = 4, max = 20, message = "The password must be in bettwen 4 to 20 character length")
+    @Size(min = 4, max = 255, message = "The password must be in bettwen 4 to 255 character length")
     private String password;
 
     /*___________________________________________________________________________________________________________ */

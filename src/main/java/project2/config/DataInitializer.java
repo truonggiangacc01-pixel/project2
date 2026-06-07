@@ -4,6 +4,7 @@ package project2.config;
 import org.springframework.beans.factory.BeanRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import project2.entity.*;
 import project2.enums.*;
@@ -56,6 +57,8 @@ public class DataInitializer implements CommandLineRunner {
     private SpectatorRepo spectatorRepo;
     @Autowired
     private TicketRepo ticketRepo;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -539,6 +542,7 @@ public class DataInitializer implements CommandLineRunner {
         List<Spectator> savedSpectators = new ArrayList<>();
 
         for (Spectator spectator : spectators) {
+            spectator.setPassword(passwordEncoder.encode(spectator.getPassword()));
             spectatorService.saveSpectator(spectator);
             savedSpectators.add(spectator);
         }
@@ -551,6 +555,7 @@ public class DataInitializer implements CommandLineRunner {
         List<RaceReferee> savedRaceReferees = new ArrayList<>();
 
         for (RaceReferee raceReferee : raceReferees) {
+            raceReferee.setPassword(passwordEncoder.encode(raceReferee.getPassword()));
             raceRefereeService.saveRaceReferee(raceReferee);
             savedRaceReferees.add(raceReferee);
         }
@@ -563,6 +568,7 @@ public class DataInitializer implements CommandLineRunner {
         List<Jockey> savedJockeys = new ArrayList<>();
 
         for (Jockey jockey : jockeys) {
+            jockey.setPassword(passwordEncoder.encode(jockey.getPassword()));
             jockeyService.saveJockey(jockey);
             savedJockeys.add(jockey);
         }
@@ -575,6 +581,7 @@ public class DataInitializer implements CommandLineRunner {
         List<HorseOwner> savedHorseOwners = new ArrayList<>();
 
         for (HorseOwner horseOwner : horseOwners) {
+            horseOwner.setPassword(passwordEncoder.encode(horseOwner.getPassword()));
             horseOwnerService.saveHorseOwner(horseOwner);
             savedHorseOwners.add(horseOwner);
         }
@@ -587,6 +594,7 @@ public class DataInitializer implements CommandLineRunner {
         List<Admin> savedAdmins = new ArrayList<>();
 
         for (Admin admin : admins) {
+            admin.setPassword(passwordEncoder.encode(admin.getPassword()));
             adminService.saveAdmin(admin);
             savedAdmins.add(admin);
         }
