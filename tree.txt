@@ -1,0 +1,258 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 9CAE-1654
+D:.
+|   .gitattributes
+|   .gitignore
+|   Book1.xlsx
+|   Data.docx
+|   Data.xlsx
+|   HELP.md
+|   mvnw
+|   mvnw.cmd
+|   pom.xml
+|   README.md
+|   test_spectator_register_data.json
+|   tree.txt
+|   
++---.idea
+|   |   .gitignore
+|   |   compiler.xml
+|   |   dataSources.local.xml
+|   |   dataSources.xml
+|   |   data_source_mapping.xml
+|   |   encodings.xml
+|   |   jarRepositories.xml
+|   |   misc.xml
+|   |   vcs.xml
+|   |   workspace.xml
+|   |   
+|   +---dataSources
+|   |   |   fcaeffd2-8584-4211-8b86-15ed626a097c.xml
+|   |   |   
+|   |   \---fcaeffd2-8584-4211-8b86-15ed626a097c
+|   |       \---storage_v2
+|   |           \---_src_
+|   |               \---database
+|   |                   |   HorseRacingPracticeDatabase.YcdOQQ.meta
+|   |                   |   master.YiqNvw.meta
+|   |                   |   
+|   |                   +---HorseRacingPracticeDatabase.YcdOQQ
+|   |                   |   \---schema
+|   |                   |           dbo.sYMBAA.meta
+|   |                   |           dbo.sYMBAA.zip
+|   |                   |           INFORMATION_SCHEMA.NBgcMw.meta
+|   |                   |           sys.zb4BAA.meta
+|   |                   |           
+|   |                   \---master.YiqNvw
+|   |                       \---schema
+|   |                               dbo.sYMBAA.meta
+|   |                               dbo.sYMBAA.zip
+|   |                               INFORMATION_SCHEMA.NBgcMw.meta
+|   |                               sys.zb4BAA.meta
+|   |                               
+|   +---inspectionProfiles
+|   |       Project_Default.xml
+|   |       
+|   \---shelf
+|       |   Uncommitted_changes_before_Update_at_6_1_2026_10_12_PM__Changes_.xml
+|       |   
+|       \---Uncommitted_changes_before_Update_at_6_1_2026_10_12_PM_[Changes]
+|               shelved.patch
+|               
++---.mvn
+|   \---wrapper
+|           maven-wrapper.properties
+|           
++---src
+|   |   ra-mat.txt
+|   |   
+|   +---main
+|   |   +---java
+|   |   |   \---project2
+|   |   |       |   HorseRacingPracticeApplication.java
+|   |   |       |   
+|   |   |       +---config
+|   |   |       |       DataInitializer.java
+|   |   |       |       noteImportant
+|   |   |       |       
+|   |   |       +---controller
+|   |   |       |       RegistrationController.java
+|   |   |       |       
+|   |   |       +---dto
+|   |   |       |   +---request
+|   |   |       |   |       RegisterRequest.java
+|   |   |       |   |       
+|   |   |       |   \---response
+|   |   |       |           RegisterResponse.java
+|   |   |       |           
+|   |   |       +---entity
+|   |   |       |       Admin.java
+|   |   |       |       Horse.java
+|   |   |       |       HorseOwner.java
+|   |   |       |       Jockey.java
+|   |   |       |       Notification.java
+|   |   |       |       Prediction.java
+|   |   |       |       Prize.java
+|   |   |       |       RaceParticipation.java
+|   |   |       |       RaceReferee.java
+|   |   |       |       RaceResult.java
+|   |   |       |       RaceSchedule.java
+|   |   |       |       Spectator.java
+|   |   |       |       Ticket.java
+|   |   |       |       Tournament.java
+|   |   |       |       
+|   |   |       +---enums
+|   |   |       |       NotificationStatus.java
+|   |   |       |       PredictionStatus.java
+|   |   |       |       RaceParticipationStatus.java
+|   |   |       |       RaceResultStatus.java
+|   |   |       |       RaceScheduleStatus.java
+|   |   |       |       TicketStatus.java
+|   |   |       |       UserRole.java
+|   |   |       |       
+|   |   |       +---exception
+|   |   |       |       EmailAlreadyExistsException.java
+|   |   |       |       GlobalExceptionHandler.java
+|   |   |       |       
+|   |   |       +---repository
+|   |   |       |       AdminRepo.java
+|   |   |       |       HorseOwnerRepo.java
+|   |   |       |       HorseRepo.java
+|   |   |       |       JockeyRepo.java
+|   |   |       |       NotificationRepo.java
+|   |   |       |       PredictionRepo.java
+|   |   |       |       PrizeRepo.java
+|   |   |       |       RaceParticipationRepo.java
+|   |   |       |       RaceRefereeRepo.java
+|   |   |       |       RaceResultRepo.java
+|   |   |       |       RaceScheduleRepo.java
+|   |   |       |       SpectatorRepo.java
+|   |   |       |       TicketRepo.java
+|   |   |       |       TournamentRepo.java
+|   |   |       |       
+|   |   |       \---service
+|   |   |               AdminService.java
+|   |   |               HorseOwnerService.java
+|   |   |               HorseService.java
+|   |   |               JockeyService.java
+|   |   |               NotificationService.java
+|   |   |               PredictionService.java
+|   |   |               PrizeService.java
+|   |   |               RaceParticipationService.java
+|   |   |               RaceRefereeService.java
+|   |   |               RaceResultService.java
+|   |   |               RaceScheduleService.java
+|   |   |               RegistrationService.java
+|   |   |               SpectatorService.java
+|   |   |               TicketService.java
+|   |   |               TournamentService.java
+|   |   |               
+|   |   \---resources
+|   |       |   application.properties
+|   |       |   ERD đua ngựa-Page-4.drawio.png
+|   |       |   
+|   |       \---static
+|   \---test
+|       \---java
+|           \---project2
+|                   HorseRacingPracticeApplicationTests.java
+|                   
+\---target
+    +---classes
+    |   |   application.properties
+    |   |   ERD đua ngựa-Page-4.drawio.png
+    |   |   
+    |   \---project2
+    |       |   HorseRacingPracticeApplication.class
+    |       |   
+    |       +---config
+    |       |       DataInitializer.class
+    |       |       
+    |       +---controller
+    |       |       RegistrationController$1.class
+    |       |       RegistrationController.class
+    |       |       
+    |       +---dto
+    |       |   +---request
+    |       |   |       RegisterRequest.class
+    |       |   |       
+    |       |   \---response
+    |       |           RegisterResponse.class
+    |       |           
+    |       +---entity
+    |       |       Admin.class
+    |       |       Horse.class
+    |       |       HorseOwner.class
+    |       |       Jockey.class
+    |       |       Notification.class
+    |       |       Prediction.class
+    |       |       Prize.class
+    |       |       RaceParticipation.class
+    |       |       RaceReferee.class
+    |       |       RaceResult.class
+    |       |       RaceSchedule.class
+    |       |       Spectator.class
+    |       |       Ticket.class
+    |       |       Tournament.class
+    |       |       
+    |       +---enums
+    |       |       NotificationStatus.class
+    |       |       PredictionStatus.class
+    |       |       RaceParticipationStatus.class
+    |       |       RaceResultStatus.class
+    |       |       RaceScheduleStatus.class
+    |       |       TicketStatus.class
+    |       |       UserRole.class
+    |       |       
+    |       +---exception
+    |       |       EmailAlreadyExistsException.class
+    |       |       GlobalExceptionHandler.class
+    |       |       
+    |       +---repository
+    |       |       AdminRepo.class
+    |       |       HorseOwnerRepo.class
+    |       |       HorseRepo.class
+    |       |       JockeyRepo.class
+    |       |       NotificationRepo.class
+    |       |       PredictionRepo.class
+    |       |       PrizeRepo.class
+    |       |       RaceParticipationRepo.class
+    |       |       RaceRefereeRepo.class
+    |       |       RaceResultRepo.class
+    |       |       RaceScheduleRepo.class
+    |       |       SpectatorRepo.class
+    |       |       TicketRepo.class
+    |       |       TournamentRepo.class
+    |       |       
+    |       \---service
+    |               AdminService.class
+    |               HorseOwnerService.class
+    |               HorseService.class
+    |               JockeyService.class
+    |               NotificationService.class
+    |               PredictionService.class
+    |               PrizeService.class
+    |               RaceParticipationService.class
+    |               RaceRefereeService.class
+    |               RaceResultService.class
+    |               RaceScheduleService.class
+    |               RegistrationService.class
+    |               SpectatorService.class
+    |               TicketService.class
+    |               TournamentService.class
+    |               
+    +---generated-sources
+    |   \---annotations
+    +---generated-test-sources
+    |   \---test-annotations
+    +---maven-status
+    |   \---maven-compiler-plugin
+    |       \---compile
+    |           \---default-compile
+    |                   createdFiles.lst
+    |                   inputFiles.lst
+    |                   
+    \---test-classes
+        \---project2
+                HorseRacingPracticeApplicationTests.class
+                

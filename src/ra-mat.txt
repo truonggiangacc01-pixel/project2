@@ -1,0 +1,96 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 9CAE-1654
+D:.
+|   ra-mat.txt
+|   
++---main
+|   +---java
+|   |   \---project2
+|   |       |   HorseRacingPracticeApplication.java
+|   |       |   
+|   |       +---config
+|   |       |       DataInitializer.java
+|   |       |       noteImportant
+|   |       |       
+|   |       +---controller
+|   |       |       RegistrationController.java
+|   |       |       
+|   |       +---dto
+|   |       |   +---request
+|   |       |   |       RegisterRequest.java
+|   |       |   |       
+|   |       |   \---response
+|   |       |           RegisterResponse.java
+|   |       |           
+|   |       +---entity
+|   |       |       Admin.java
+|   |       |       Horse.java
+|   |       |       HorseOwner.java
+|   |       |       Jockey.java
+|   |       |       Notification.java
+|   |       |       Prediction.java
+|   |       |       Prize.java
+|   |       |       RaceParticipation.java
+|   |       |       RaceReferee.java
+|   |       |       RaceResult.java
+|   |       |       RaceSchedule.java
+|   |       |       Spectator.java
+|   |       |       Ticket.java
+|   |       |       Tournament.java
+|   |       |       
+|   |       +---enums
+|   |       |       NotificationStatus.java
+|   |       |       PredictionStatus.java
+|   |       |       RaceParticipationStatus.java
+|   |       |       RaceResultStatus.java
+|   |       |       RaceScheduleStatus.java
+|   |       |       TicketStatus.java
+|   |       |       UserRole.java
+|   |       |       
+|   |       +---exception
+|   |       |       EmailAlreadyExistsException.java
+|   |       |       GlobalExceptionHandler.java
+|   |       |       
+|   |       +---repository
+|   |       |       AdminRepo.java
+|   |       |       HorseOwnerRepo.java
+|   |       |       HorseRepo.java
+|   |       |       JockeyRepo.java
+|   |       |       NotificationRepo.java
+|   |       |       PredictionRepo.java
+|   |       |       PrizeRepo.java
+|   |       |       RaceParticipationRepo.java
+|   |       |       RaceRefereeRepo.java
+|   |       |       RaceResultRepo.java
+|   |       |       RaceScheduleRepo.java
+|   |       |       SpectatorRepo.java
+|   |       |       TicketRepo.java
+|   |       |       TournamentRepo.java
+|   |       |       
+|   |       \---service
+|   |               AdminService.java
+|   |               HorseOwnerService.java
+|   |               HorseService.java
+|   |               JockeyService.java
+|   |               NotificationService.java
+|   |               PredictionService.java
+|   |               PrizeService.java
+|   |               RaceParticipationService.java
+|   |               RaceRefereeService.java
+|   |               RaceResultService.java
+|   |               RaceScheduleService.java
+|   |               RegistrationService.java
+|   |               SpectatorService.java
+|   |               TicketService.java
+|   |               TournamentService.java
+|   |               
+|   \---resources
+|       |   application.properties
+|       |   ERD đua ngựa-Page-4.drawio.png
+|       |   
+|       \---static
+\---test
+    \---java
+        \---project2
+                HorseRacingPracticeApplicationTests.java
+                
