@@ -1,0 +1,326 @@
+/*___________________________________________________________________________________________________________ */
+        //                                              LƯU Spectator
+
+        List<Spectator> spectators = List.of(spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+
+        List<Spectator> savedSpectators = new ArrayList<>();
+
+        for (Spectator spectator : spectators) {
+            spectatorService.saveSpectator(spectator);
+            savedSpectators.add(spectator);
+        }
+
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU Racereferee
+
+        List<RaceReferee> raceReferees = List.of(ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10);
+
+        List<RaceReferee> savedRaceReferees = new ArrayList<>();
+
+        for (RaceReferee raceReferee : raceReferees) {
+            raceRefereeService.saveRaceReferee(raceReferee);
+            savedRaceReferees.add(raceReferee);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU Jockey
+
+        List<Jockey> jockeys = List.of(joc1, joc2, joc3, joc4, joc5, joc6, joc7, joc8);
+
+        List<Jockey> savedJockeys = new ArrayList<>();
+
+        for (Jockey jockey : jockeys) {
+            jockeyService.saveJockey(jockey);
+            savedJockeys.add(jockey);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              GÁN Horse vào HorseOwner
+
+        List<HorseOwner> horseOwners = List.of(ho1, ho2, ho3, ho4);
+
+        List<Horse> horses = List.of(h1, h2, h3, h4, h5, h6, h7, h8);
+
+        for (int i = 0; i < horses.size(); i++) {
+            int ownerIndex = i / 2;
+            horseOwners.get(ownerIndex).addHorse(horses.get(i));
+        }
+        /*___________________________________________________________________________________________________________ */
+        //                                              LƯU HorseOwner
+
+        List<HorseOwner> savedHorseOwners = new ArrayList<>();
+
+        List<Horse> savedHorses = new ArrayList<>();
+
+        for (HorseOwner horseOwner : horseOwners) {
+
+            horseOwnerService.saveHorseOwner(horseOwner);
+
+
+            savedHorseOwners.add(horseOwner);
+        }
+
+        savedHorses.addAll(horses);
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Tournament vào Admin
+
+        List<Admin> admins = List.of(ad1, ad2, ad3, ad4, ad5);
+
+        List<Tournament> tournaments = List.of(tour1, tour2, tour3, tour4, tour5, tour6);
+
+        for(int i = 0; i < tournaments.size(); i++){
+
+            Admin currentAdmin = admins.get(i % admins.size());
+            currentAdmin.addTournament(tournaments.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceSchedule vào Tournament
+
+        tour1.addRaceSchedule(rasc1);
+        tour1.addRaceSchedule(rasc2);
+        tour1.addRaceSchedule(rasc3);
+
+        tour2.addRaceSchedule(rasc4);
+        tour3.addRaceSchedule(rasc5);
+        tour4.addRaceSchedule(rasc6);
+        tour5.addRaceSchedule(rasc7);
+
+        tour6.addRaceSchedule(rasc8);
+        tour6.addRaceSchedule(rasc9);
+        tour6.addRaceSchedule(rasc10);
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Prize vào Tournament
+        //List<Tournament> tournaments = List.of(tour1, tour2, tour3, tour4, tour5, tour6);
+
+        for(Tournament tournament : tournaments){
+
+            tournament.addPrize(new Prize("Giải Nhất", BigDecimal.valueOf(2500000000.00), 1));
+            tournament.addPrize(new Prize("Giải Nhì", BigDecimal.valueOf(1375000000.00), 2));
+            tournament.addPrize(new Prize("Giải Ba", BigDecimal.valueOf(937500000.00), 3));
+            tournament.addPrize(new Prize("Giải Tư", BigDecimal.valueOf(562500000.00), 4));
+            if(tournament == tour1 || tournament == tour6){
+                tournament.addPrize(new Prize("Giải Năm", BigDecimal.valueOf(375000000.00), 5));
+                tournament.addPrize(new Prize("Giải Sáu", BigDecimal.valueOf(375000000.00), 6));
+                tournament.addPrize(new Prize("Giải Bảy", BigDecimal.valueOf(375000000.00), 7));
+                tournament.addPrize(new Prize("Giải Tám", BigDecimal.valueOf(375000000.00), 8));
+            }
+
+        }
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Ticket vào Tournament
+        //                                              Gán saveSpectator vào Ticket
+
+        //List<Tournament> tournaments = List.of(tour1, tour2, tour3, tour4, tour5, tour6);
+
+        List<Ticket> tickets = List.of(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+
+        for(int i = 0; i < tickets.size(); i++){
+
+            Ticket currentTicket = tickets.get(i);
+
+            int tourIndex = i / 2;
+            tournaments.get(tourIndex).addTicket(currentTicket);
+
+            int specIndex = i % savedSpectators.size();
+            savedSpectators.get(specIndex).addTicket(currentTicket);
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào RaceSchedule
+
+        List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+        List<RaceSchedule> raceSchedules = List.of(rasc1, rasc2, rasc3, rasc4, rasc5, rasc6, rasc7, rasc8, rasc9, rasc10);
+
+        for (int i = 0; i < raceParticipations.size(); i++) {
+            int scheduleIndex = i / 4;
+            if(scheduleIndex < raceSchedules.size()){
+                raceSchedules.get(scheduleIndex).addRaceParticipation(raceParticipations.get(i));
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào Jockey
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<Jockey> jockeys = List.of(joc1, joc2, joc3, joc4, joc5, joc6, joc7, joc8);
+
+        // ĐỢT 1: rapa1 -> rapa8 (index 0 đến 7)
+        for(int i = 0; i < 4; i++){
+            // SỬ DỤNG savedJockeys
+            savedJockeys.get(i).addRaceParticipation(raceParticipations.get(i));
+        }
+
+        // ĐỢT 2: rap9 -> rapa12 (index 8 đến 11)
+        int[] jockeyDot2 = {0, 1, 4, 5};
+        for(int i = 0; i < 4; i++){
+            // SỬ DỤNG savedJockeys
+            savedJockeys.get(jockeyDot2[i]).addRaceParticipation(raceParticipations.get(8 + i));
+        }
+
+        // ĐỢT 3: rapa13 -> rapa36 (index 12 đến 35)
+        int jocIndex = 0;
+        for(int i = 12; i < raceParticipations.size(); i++){
+            // SỬ DỤNG savedJockeys
+            savedJockeys.get(jocIndex).addRaceParticipation(raceParticipations.get(i));
+
+            jocIndex++;
+            if(jocIndex == 8){
+                jocIndex = 0;
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceParticipation vào Horse
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<Horse> horses = List.of(h1, h2, h3, h4, h5, h6, h7, h8);
+
+        // ĐỢT 1: rapa1 -> rapa8 (index 0 đến 7)
+        for(int i = 0; i < 8; i++){
+            // SỬ DỤNG savedHorses
+            savedHorses.get(i).addRaceParticipation(raceParticipations.get(i));
+        }
+
+        // ĐỢT 2: rap9 -> rapa12 (index 8 đến 11)
+        int[] horseDot2 = {0, 1, 4, 5};
+        for(int i = 0; i < 4; i++){
+            // SỬ DỤNG savedHorses
+            savedHorses.get(horseDot2[i]).addRaceParticipation(raceParticipations.get(8 + i));
+        }
+
+        // ĐỢT 3: rapa13 -> rapa36 (index 12 đến 35)
+        int horseIndex = 0;
+        for(int i = 12; i < raceParticipations.size(); i++){
+            // SỬ DỤNG savedHorses
+            savedHorses.get(horseIndex).addRaceParticipation(raceParticipations.get(i));
+
+            horseIndex++;
+            if(horseIndex == 8){
+                horseIndex = 0;
+            }
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceSchedule
+
+        //List<RaceSchedule> raceSchedules = List.of(rasc1, rasc2, rasc3, rasc4, rasc5, rasc6, rasc7, rasc8, rasc9, rasc10);
+
+        List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for (int i = 0; i < raceResults.size(); i++) {
+            int scheduleIndex = i / 4; // Cứ 4 kết quả thuộc về 1 Lịch thi đấu
+
+            if(scheduleIndex < raceSchedules.size()){
+                raceSchedules.get(scheduleIndex).addRaceResult(raceResults.get(i));
+            }
+        }
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceParticipation
+
+        //List<RaceParticipation> raceParticipations = List.of(rapa1, rapa2, rapa3, rapa4, rapa5, rapa6, rapa7, rapa8, rapa9, rapa10, rapa11, rapa12, rapa13, rapa14, rapa15, rapa16, rapa17, rapa18, rapa19, rapa20, rapa21, rapa22, rapa23, rapa24, rapa25, rapa26, rapa27, rapa28, rapa29, rapa30, rapa31, rapa32, rapa33, rapa34, rapa35, rapa36);
+
+        //List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for(int i = 0; i < raceResults.size(); i++){
+            // Tỉ lệ 1:1, mỗi lượt dự thi có đúng 1 kết quả tương ứng
+            raceParticipations.get(i).addRaceResult(raceResults.get(i));
+        }
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán RaceResult vào RaceReferee
+
+        //List<RaceReferee> raceReferees = List.of(ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10);
+
+        //List<RaceResult> raceResults = List.of(rare1, rare2, rare3, rare4, rare5, rare6, rare7, rare8, rare9, rare10, rare11, rare12, rare13, rare14, rare15, rare16, rare17, rare18, rare19, rare20, rare21, rare22, rare23, rare24, rare25, rare26, rare27, rare28, rare29, rare30, rare31, rare32, rare33, rare34, rare35, rare36);
+
+        for (int i = 0; i < raceResults.size(); i++) {
+            int raceRefereeIndex = i / 4; // Cứ 4 kết quả được giám sát bởi 1 Trọng tài
+
+            // Kiểm tra với kích thước của danh sách Trọng tài ĐÃ LƯU
+            if(raceRefereeIndex < savedRaceReferees.size()){
+                // Gán vào đúng Trọng tài đã có ID
+                savedRaceReferees.get(raceRefereeIndex).addRaceResult(raceResults.get(i));
+            }
+        }
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán Prediction vào RaceSchedule
+
+        //List<RaceSchedule> raceSchedules = List.of(rasc1, rasc2, rasc3, rasc4, rasc5, rasc6, rasc7, rasc8, rasc9, rasc10);
+        List<Prediction> predictions = List.of(pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12);
+
+        int scheduleIndex = 2;
+
+        for (int i = 0; i < predictions.size(); i++) {
+            // Lấy đối tượng Prediction hiện tại
+            Prediction currentPred = predictions.get(i);
+
+            // Gán Prediction vào RaceSchedule tương ứng
+            raceSchedules.get(scheduleIndex).addPrediction(currentPred);
+
+            // Quy luật chuyển tiếp scheduleIndex:
+            // - Từ pre1 (i=0) đến pre10 (i=9): cứ sau mỗi 2 đối tượng (chỉ số lẻ: 1, 3, 5, 7, 9) thì đổi sang schedule tiếp theo.
+            // - Từ pre11 (i=10) trở đi: đổi schedule ngay sau mỗi đối tượng.
+            if (i < 10) {
+                if (i % 2 == 1) {
+                    scheduleIndex++;
+                }
+            } else {
+                scheduleIndex++;
+            }
+        }
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán saveSpectator vào Prediction
+
+        //List<Spectator> spectators = List.of(spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+        //List<Prediction> predictions = List.of(pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12);
+
+        for (int i = 0; i < predictions.size(); i++) {
+            // SỬ DỤNG savedSpectators
+            int spectatorIndex = i % savedSpectators.size();
+
+            // SỬ DỤNG savedSpectators
+            savedSpectators.get(spectatorIndex).addPrediction(predictions.get(i));
+        }
+
+
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Gán savedHorse vào Prediction
+
+        //List<Horse> horses = List.of(h1, h2, h3, h4, h5, h6, h7, h8);
+        //List<Prediction> predictions = List.of(pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12);
+
+        savedHorses.get(0).addPrediction(pre1);  // h1
+        savedHorses.get(1).addPrediction(pre2);  // h2
+        savedHorses.get(2).addPrediction(pre3);  // h3
+        savedHorses.get(3).addPrediction(pre4);  // h4
+
+        savedHorses.get(6).addPrediction(pre5);  // h7
+        savedHorses.get(7).addPrediction(pre6);  // h8
+        savedHorses.get(2).addPrediction(pre7);  // h3
+        savedHorses.get(3).addPrediction(pre8);  // h4
+
+        savedHorses.get(4).addPrediction(pre9);  // h5
+        savedHorses.get(5).addPrediction(pre10); // h6
+        savedHorses.get(0).addPrediction(pre11); // h1
+        savedHorses.get(4).addPrediction(pre12); // h5
+
+        /*___________________________________________________________________________________________________________ */
+        //                                              Lưu Admin
+
+        for (Admin admin : admins) {
+            adminService.saveAdmin(admin);
+        }
